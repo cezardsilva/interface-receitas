@@ -2,9 +2,12 @@ import axios from 'axios'
 
 
 // const VITE_API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api/";
+// const VITE_API_URL = import.meta.env.PROD 
+//   ? import.meta.env.VITE_API_URL_PRODUCTION 
+//   : import.meta.env.VITE_API_URL_LOCAL || "http://localhost:3001/api/";
 const VITE_API_URL = import.meta.env.PROD 
-  ? import.meta.env.VITE_API_URL_PRODUCTION 
-  : import.meta.env.VITE_API_URL_LOCAL || "http://localhost:3001/api/";
+  ? "https://api-aireceitas.onrender.com/"  // Sem /api se não existir no backend
+  : "http://localhost:3001/api/";
 
 export const api = async (pergunta) => {
     try {
